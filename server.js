@@ -32,7 +32,9 @@ var sess = session({
 
 if (app.get('env') === 'production') {
     app.set('trust proxy', 1) // trust first proxy
-    sess.cookie.secure = true // serve secure cookies
+    sess.cookie = {
+        secure: true
+    } 
 }
 
 app.use(sess);
