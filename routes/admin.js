@@ -37,8 +37,8 @@ router.get('/login',(req,res)=>{
 
 router.get('/register',(req,res)=>{
     const { isAdminLoggedIn }  = req.session
-    if(!isAdminLoggedIn) {
-        res.redirect('/admin/login')
+    if(isAdminLoggedIn) {
+        res.redirect('/admin/')
         return
     }
     res.render('pages/admin/register',{
