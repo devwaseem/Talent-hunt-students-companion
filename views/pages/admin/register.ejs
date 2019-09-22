@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../../partials/head %> 
+        <script src="/js/admin/register.js"></script>
+    </head>
+    <body>
+        <%- include("../../partials/adminHeader",{isAdminLoggedIn})%>
+        <main class="login-form">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Coordinator Registration</div>
+                                <div class="card-body">
+                                    <form  method="POST" id="registerForm" >
+                                        <div class="form-group row">
+                                            <label for="rrn" class="col-md-4 col-form-label text-md-right">RRN</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="rrn" class="form-control" name="rrn"  autofocus required>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group row">
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="name" class="form-control" name="name"  autofocus required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label for="phonenumber" class="col-md-4 col-form-label text-md-right">Phone number</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="phonenumber" class="form-control" name="phonenumber" autofocus required autocomplete="mobile">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                                <label for="event" class="col-md-4 col-form-label text-md-right">Your Event</label>
+                                                <div class="col-md-6">
+                                                        <select id="event">
+                                                                <option value="-">-</option>
+                                                                <option value="INFO QUEST">INFO QUEST</option>
+                                                                <option value="I CAN DO THIS ALL DAY!!">I CAN DO THIS ALL DAY!!</option>
+                                                                <option value="REMIND ME LATER">REMIND ME LATER</option>
+                                                                <option value="AVENGERS ASSEMBLE">AVENGERS ASSEMBLE</option>
+                                                                <option value="SHERLOCK HOLMES">SHERLOCK HOLMES</option>
+                                                                <option value="ARE YOU DEAF??">ARE YOU DEAF??</option>
+                                                                <option value="BRAIN BANG">BRAIN BANG</option>
+                                                                <option value="ESCAPE ROOM">ESCAPE ROOM</option>
+                                                                <option value="I’VE A PLAN.ATTACK!!!">I’VE A PLAN. ATTACK!!!</option>
+                                                                <option value="TECH-RAP">TECH-RAP</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                        <div class="form-group row">
+                                                <label for="email" class="col-md-4 col-form-label text-md-right">Email id</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" id="email" class="form-control" name="email"  required autofocus>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                                <div class="col-md-6">
+                                                    <input type="password" id="password" class="form-control" name="password"  required autofocus>
+                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="confirm-password" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                                <div class="col-md-6">
+                                                    <input type="password" id="confirm-password" class="form-control" name="confirm-password"  required autofocus>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary" id="registerSubmitButton">
+                                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="registerButtonSpinner" hidden></span>
+                                                <span id="buttonText">Register</span>
+                                            </button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            </main>
+        
+    </body>
+</html>

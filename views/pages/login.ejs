@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %> 
+        <script src="/js/login.js"></script>
+    </head>
+    <body>
+           
+        <%- include("../partials/header",{isLoggedIn})%>
+
+        <main class="login-form">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Login</div>
+                                <div class="card-body">
+                                    <form id="loginForm">
+                                        <div class="form-group row">
+                                            <label for="email_address" class="col-md-4 col-form-label text-md-right">RRN</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="rrn" class="form-control" name="rrn" required autofocus>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group row">
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">Phone number</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="phonenumber" class="form-control" name="phonenumber" required>
+                                            </div>
+                                        </div>
+            
+                    
+            
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary" id="loginSubmitButton">
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loginButtonSpinner" hidden></span>
+                                                <span id="buttonText">Login</span>
+                                            </button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            </main>
+
+
+        
+    </body>
+</html>

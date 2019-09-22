@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <% include ../../partials/head %>
+            <script src="js/admin/index.js"> </script>
+    </head>
+    <body>
+        <%- include("../../partials/adminHeader",{isAdminLoggedIn})%>
+        <main class="login-form">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Score updation</div>
+                                <div class="card-body">
+                                    <form id="scoreUpdateForm" >
+                                        <div class="form-group row">
+                                            <label for="r" class="col-md-4 col-form-label text-md-right">RRN</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="r" class="form-control" name="r"  autofocus required>
+                                            </div>
+                                        </div>
+            
+
+                                        <div class="form-group row">
+                                                <label for="type" class="col-md-4 col-form-label text-md-right">Type</label>
+                                                <div class="col-md-6">
+                                                    <select id="type" name="updateType">
+                                                            <option value="0">Participation</option>
+                                                            <option value="1">WINNER( 1st )</option>
+                                                            <option value="2">2nd</option>
+                                                            <option value="3">3rd</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group row" id="passcode-container">
+                                                <label for="passcode" class="col-md-4 col-form-label text-md-right">Passcode</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="passcode" class="form-control" name="passcode"  autofocus required>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary" id="updateSubmitButton">
+                                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="updateButtonSpinner" hidden></span>
+                                                <span id="buttonText">Update</span>
+                                            </button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </main>
+    </body>
+</html>

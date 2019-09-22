@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %> 
+        <script src="/js/register.js"></script>
+    </head>
+    <body>
+        <%- include("../partials/header",{isLoggedIn})%>
+        <main class="login-form">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Register</div>
+                                <div class="card-body">
+                                    <form  method="POST" id="registerForm" >
+                                        <div class="form-group row">
+                                            <label for="rrn" class="col-md-4 col-form-label text-md-right">RRN</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="rrn" class="form-control" name="rrn"  autofocus required>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group row">
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="name" class="form-control" name="name"  autofocus required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="year" class="col-md-4 col-form-label text-md-right">Year</label>
+                                            <div class="col-md-6">
+                                                    <select id="year">
+                                                            <option value="-">-</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="section" class="col-md-4 col-form-label text-md-right">Section</label>
+                                            <div class="col-md-6">
+                                                    <select id="section">
+                                                            <option value="-">-</option>
+                                                            <option value="A">A</option>
+                                                            <option value="B">B</option>
+                                                            <option value="C">C</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="phonenumber" class="col-md-4 col-form-label text-md-right">Phone number</label>
+                                            <div class="col-md-6">
+                                                <input type="number" id="phonenumber" class="form-control" name="phonenumber" autofocus required autocomplete="mobile">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="email" class="col-md-4 col-form-label text-md-right">Email id</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" id="email" class="form-control" name="email"  required autofocus>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary" id="registerSubmitButton">
+                                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="registerButtonSpinner" hidden></span>
+                                                <span id="buttonText">Register</span>
+                                            </button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            </main>        
+    </body>
+</html>

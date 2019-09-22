@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <% include ../partials/head %>
+            <script src="/js/leaderboard.js"></script>
+    </head>
+    <body>
+        <%- include("../partials/header",{isLoggedIn})%>
+        <h2 style="display:none;" id="page"><%=page%></h2>
+        <h2 style="display:none;" id="maxpage"><%=maxpage%></h2>
+        <div class="leaderboard-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">RRN</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let i=0;i<leaderboard.length;i++){%>
+                            <tr>
+                                <th scope="row"><%=leaderboard[i].position%></th>
+                                <td><%=leaderboard[i].rrn%></td>
+                                <td><%=leaderboard[i].name%></td>
+                                <td><%=leaderboard[i].score%></td>
+                            </tr>
+                        <%}%>
+                        
+                    </tbody>
+                </table>
+                <span id="current-page">Current Page: <%= page %></p>
+                <button type="button" class="btn btn-primary" id="button-previous">Previous</button>
+                <button type="button" class="btn btn-primary" id="button-next">Next</button>
+        </div>
+    </body>
+</html>

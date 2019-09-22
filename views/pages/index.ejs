@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <% include ../partials/head %>
+            <script>
+                $(()=>{
+                    
+                })
+            </script>
+    </head>
+    <body>
+           
+        <%- include("../partials/header",{isLoggedIn})%>
+        <div class="th-container">
+            <div class="score-container">
+                <p class="current-score-text">CURRENT SCORE</p>
+                <p class="current-score"><%= score %></p>
+                <p class="current-score-position">Participate in all the events to increase your overall points</p>
+            </div>
+            <div class="details-container">
+                <div class="details-box">
+                    <p><strong>ID: </strong> <%= rrn %></p>
+                </div>
+                <div class="details-box">
+                    <p><strong>Name: </strong><%= name %></p>
+                </div>
+                <div class="details-box">
+                    <p><strong>Year: </strong><%= year %></p>
+                </div>
+                <div class="details-box">
+                    <p><strong>Section: </strong><%= section %></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../../partials/head %> 
+        <script src="/js/admin/login.js"></script>
+    </head>
+    <body>
+        <%- include("../../partials/adminHeader",{isAdminLoggedIn})%>
+        <main class="login-form">
+                <div class="cotainer">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">Login</div>
+                                <div class="card-body">
+                                    <form id="loginForm">
+                                        <div class="form-group row">
+                                            <label for="adminEmail" class="col-md-4 col-form-label text-md-right">Email</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="adminEmail" class="form-control" name="adminEmail" required autofocus>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group row">
+                                            <label for="adminPassword" class="col-md-4 col-form-label text-md-right">Password</label>
+                                            <div class="col-md-6">
+                                                <input type="password" id="adminPassword" class="form-control" name="adminPassword" required>
+                                            </div>
+                                        </div>
+            
+                    
+            
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary" id="loginSubmitButton">
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="loginButtonSpinner" hidden></span>
+                                                <span id="buttonText">Login</span>
+                                            </button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            </main>
+
+
+        
+    </body>
+</html>

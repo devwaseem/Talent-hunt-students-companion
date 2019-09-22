@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <% include ../partials/head %>
+            <script src="/js/leaderboard.js"></script>
+    </head>
+    <body>
+        <%- include("../partials/header",{isLoggedIn})%>
+        <% for(let i=0;i<history.length;i++){%>
+            <div class="history-container">
+                <p><%=history[i]%></p>
+            </div>
+        <%}%>
+    </body>
+</html>
