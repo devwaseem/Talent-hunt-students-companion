@@ -38,7 +38,7 @@ router.get('/login',(req,res)=>{
 router.get('/register',(req,res)=>{
     const { isAdminLoggedIn }  = req.session
     const registrationsAllowed = process.env.ALLOW_REGISTRATIONS
-    if(isAdminLoggedIn && registrationsAllowed === "ALLOW") {
+    if(isAdminLoggedIn || registrationsAllowed !== "ALLOW") {
         res.redirect('/admin/')
         return
     }
