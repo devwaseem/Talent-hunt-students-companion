@@ -19,12 +19,12 @@ ProtectedRoutes.use((req, res, next) =>{
                     message: 'Session expired. Please login Again'
                 });    
             }
-            // else if(decoded !== req.session.adminPayload){
-            //     return res.json({ 
-            //         success: false,
-            //         message: 'Intrusion detected. Restarting server...'
-            //     });   
-            // }
+            else if(decoded !== req.session.adminPayload){
+                return res.json({ 
+                    success: false,
+                    message: 'Intrusion detected. Restarting server...'
+                });   
+            }
             else {
                 
                 req.decoded = decoded;    
