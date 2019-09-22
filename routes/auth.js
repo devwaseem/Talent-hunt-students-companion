@@ -78,7 +78,7 @@ router.post('/login',async (req,res)=>{
         req.session.currentUserObjectId = undefined
         res.json({
             success:false,
-            message:"RRN not found. Please register first",
+            message:"RRN not found. Please register your RRN in this app first. Register link is available in this app menu.",
         })
         return
     }
