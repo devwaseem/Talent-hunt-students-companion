@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session')
 var parser = require('body-parser');
 var Parse = require('parse/node');
-var jwt = require('jsonwebtoken')
+var PORT = process.env.PORT || 5000
+
 Parse.initialize("KF4YtLAwJgriUKo3ZazzIK8RjA5bIjiMiXkoZL1S", "5cCXSAnDx5nWHtUJj7SpO3Xi9wfO5MDiTv2EEemh"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
 Parse.serverURL = "https://parseapi.back4app.com/";
 const {SECRET_KEY} = require('./config')
@@ -19,8 +20,8 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(parser.json());
 app.use(parser.urlencoded({extended:false}));
-// app.use(morgan('combined'))
-// morgan(':method :url :status :res[content-length] - :response-time ms')
+app.use(morgan('combined'))
+morgan(':method :url :status :res[content-length] - :response-time ms')
 
 var sess = session({
     secret:"abcd", 
@@ -75,11 +76,11 @@ app.get('/', async function(req, res) {
 });
 
 app.get('/leaderboard/:page',async (req,res)=>{
-    let isLoggedIn = req.session.isLoggedIn
-    if(!isLoggedIn) {
-        res.redirect('/login')
-        return
-    }
+    // let isLoggedIn = req.session.isLoggedIn
+    // if(!isLoggedIn) {
+    //     res.redirect('/login')
+    //     return
+    // }
 
     var currentPage = parseInt(req.params.page)
     const countQuery = new Parse.Query(Registration);
@@ -142,6 +143,6 @@ app.get('/history',async (req,res)=>{
 //     res.redirect('/')
 // })
 
-app.listen(5000,()=>{
-    console.log("Server running on port 5000")
+app.listen(PORT,()=>{
+    console.log("Server running on port: " + PORT)
 });
