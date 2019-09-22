@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var favicon = require('serve-favicon')
+var path = require('path')
 var morgan = require('morgan')
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
@@ -7,21 +9,22 @@ var parser = require('body-parser');
 var Parse = require('parse/node');
 var PORT = process.env.PORT || 5000
 
-Parse.initialize("KF4YtLAwJgriUKo3ZazzIK8RjA5bIjiMiXkoZL1S", "5cCXSAnDx5nWHtUJj7SpO3Xi9wfO5MDiTv2EEemh"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.initialize("KF4YtLAwJgriUKo3ZazzIK8RjA5bIjiMiXkoZL1S", "5cCXSAnDx5nWHtUJj7SpO3Xi9wfO5MDiTv2EEemh");
 Parse.serverURL = "https://parseapi.back4app.com/";
 const {SECRET_KEY} = require('./config')
 
 var Registration = Parse.Object.extend("Registration");
 var History = Parse.Object.extend("History");
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.set('Secret', SECRET_KEY );
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(parser.json());
 app.use(parser.urlencoded({extended:false}));
-app.use(morgan('combined'))
-morgan(':method :url :status :res[content-length] - :response-time ms')
+// app.use(morgan('combined'))
+// morgan(':method :url :status :res[content-length] - :response-time ms')
 
 var sess = session({
     secret:"abcd", 
