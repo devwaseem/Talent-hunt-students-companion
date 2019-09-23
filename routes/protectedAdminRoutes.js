@@ -22,7 +22,8 @@ ProtectedRoutes.use((req, res, next) =>{
             else if(decoded !== req.session.adminPayload){
                 return res.json({ 
                     success: false,
-                    message: 'Intrusion detected. Restarting server...'
+                    message: `Intrusion detected. Restarting Server... Changing all the Secret keys...
+                     Enna pannalaum hack panna mudiyathu!`
                 });   
             }
             else {
@@ -74,7 +75,7 @@ ProtectedRoutes.post('/:type',async (req,res)=>{
         })
     }
 
-    if(type > 0 && passcode !== PASSCODE){
+    if(type > 0 && passcode !== process.env.UPDATE_PASSCODE){
         return res.send({
             success:false,
             message:"Incorrect Passcode, Please try again!"

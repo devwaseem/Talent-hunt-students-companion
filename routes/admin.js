@@ -8,7 +8,6 @@ var jwt = require('jsonwebtoken')
 var {encrypt} = require('../crypto')
 const {
     SECRET_KEY,
-    REGISTERATION_SCORE,
     } = require('../config')
 
 
@@ -35,9 +34,16 @@ router.get('/login',(req,res)=>{
     })
 })
 
-router.get('/register',(req,res)=>{
+router.get('/register/:passcode',(req,res)=>{
     const { isAdminLoggedIn }  = req.session
     const registrationsAllowed = process.env.ALLOW_REGISTRATIONS
+    const registrationPasscode = process.env.REGISTRATION_PASSCODE
+
+    if(req.params.passcode !== registrationPasscode){
+        res.send("You're in wrong place bud!...")
+        return
+    }
+
     if(isAdminLoggedIn || registrationsAllowed !== "ALLOW") {
         res.redirect('/admin/')
         return
