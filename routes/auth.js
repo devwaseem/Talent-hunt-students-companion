@@ -69,7 +69,7 @@ router.post('/register',async (req,res)=>{
 })
 
 router.post('/login',async (req,res)=>{
-    const {rrn,phone} = req.body;
+    const {rrn} = req.body;
     var query = new Parse.Query(Registration);
     query.equalTo("RRN",rrn);
     query.ascending("createdAt");
@@ -85,7 +85,7 @@ router.post('/login',async (req,res)=>{
 
     for (let i = 0; i < results.length; i++) {
         var object = results[i];
-        if(phone === object.get("phoneNumber")){
+        // if(phone === object.get("phoneNumber")){
             req.session.isLoggedIn = true
             req.session.currentUserObjectId = object.id
             req.session.rrn = rrn
@@ -94,7 +94,7 @@ router.post('/login',async (req,res)=>{
                 message:"Login successful",
             })
             return
-        }
+        // }
     }
     res.json({
         success:false,
